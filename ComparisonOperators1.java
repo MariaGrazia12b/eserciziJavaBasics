@@ -7,8 +7,11 @@ public class ComparisonOperators1 {
         int y = 90;
         System.out.println("x: " + x);
         System.out.println("y: " + y);
-        
+
+        System.out.println("Equals x = y: " + xyEquals(x, y));
+    }
+    public static boolean xyEquals(int x, int y) {
         boolean equals = x == y;
-        System.out.println("Equals x = y: " + equals);
+        return equals;
     }
 }

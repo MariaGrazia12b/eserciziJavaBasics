@@ -3,19 +3,18 @@
 
 public class AssignmentOperators {
     public static void main(String args[]) {
-        int a = 56;
-        int b = 34;
+        int a = 60;
+        int b = 80;
         
         System.out.println("a: " + a);
-        a += 5;
-        System.out.println("Inc: " + a);
-        
         System.out.println("b: " + b);
+
+        System.out.println("Multiplication: " + multiplication(a, b));
+    }
+    public static int multiplication(int a, int b) {
+        a += 5;
         b += 3;
-        System.out.println("Inc: " + b);
-        
         int multi = a * b;
-        System.out.println("Multiplication: " + multi);
-        
+        return multi;
     }
 }

@@ -6,14 +6,13 @@ public class NumericalOperators3 {
         int b = 34;
         
         System.out.println("a: " + a);
-        a++;
-        System.out.println("Inc: " + a);
-        
         System.out.println("b: " + b);
-        b++;
-        System.out.println("Inc: " + b);
-        
-        int c = a++ * b++;
-        System.out.println("Multiplication: " + c);
+        System.out.println("Multiplication: " + multiplication(a, b));
+    }
+    public static int multiplication(int a, int b) {
+        a += 2;
+        b += 3;
+        int c = a * b;
+        return c;
     }
 }

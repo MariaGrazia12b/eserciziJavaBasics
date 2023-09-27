@@ -6,8 +6,12 @@ public class NumericalOperators1 {
         int number2 = 45;
         System.out.println("Number1: " + number1);
         System.out.println("Number2: " + number2);
-        
+
+        System.out.println("Division: " + division(number1, number2));
+    }
+
+    public int division(int number1, int number2) {
         int resultDiv = number1 / number2;
-        System.out.println("Division: " + resultDiv);
+        return resultDiv;
     }
 }

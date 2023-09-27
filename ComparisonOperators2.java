@@ -7,9 +7,12 @@ public class ComparisonOperators2 {
         char caracter2 = 'h';
         System.out.println("Caracter1: " + caracter1);
         System.out.println("Caracter2: " + caracter2);
-        
-        boolean charEquals = caracter1 != caracter2;
-        System.out.println("Result equals: " + charEquals);
+
+        System.out.println("Result equals: " + charEquals(caracter1, caracter2));
+    }
+    public static boolean charEquals(char caracter1, char caracter2) {
+        boolean caracterEquals = caracter1 != caracter2;
+        return caracterEquals;
     }
 }
 

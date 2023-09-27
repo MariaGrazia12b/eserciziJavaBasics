@@ -8,8 +8,11 @@ public class NumericalOperators2 {
         System.out.println("Number1: " + number1);
         System.out.println("Number2: " + number2);
         System.out.println("Number3: " + number3);
-        
+
+        System.out.println("Arithmetic average: " + computeMedia(number1, number2, number3));
+    }
+    public static int computeMedia(int number1, int number2, int number3) {
         int result = (number1 + number2 + number3) / 2;
-        System.out.println("Arithmetic average: " + result);
+        return result;
     }
 }

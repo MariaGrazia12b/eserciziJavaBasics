@@ -11,7 +11,7 @@ public class WhileLoop {
     public static int loop(int x) {
         int sum = 0;
         int i = 0;
-        while(i <= x) {
+        while(i < x) {
             sum += i;
             i++;
         }

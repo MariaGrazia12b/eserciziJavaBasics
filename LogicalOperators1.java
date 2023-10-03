@@ -5,11 +5,11 @@
 public class LogicalOperators1 {
     public static void main(String args[]) {
         int x = 60;
-        int y = 39;
+        int y = 19;
         int z = 21;
         System.out.println("Value of " + z + " is between " + x + " and " + y + "? " + comparison(x, y, z));
     }
     public static boolean comparison(int x, int y, int z) {
-        return (z < x && z < y);
+        return (z < x && z > y);
     }
 }

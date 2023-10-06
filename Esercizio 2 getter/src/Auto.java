@@ -1,8 +1,8 @@
 public class Auto {
-    private int cilindrata;
-    private String targa;
-    private String marca;
-    private String modello;
+    public int cilindrata;
+    public String targa;
+    public String marca;
+    public String modello;
 
     // costruttore
     public Auto(int cilindrata, String targa, String marca, String modello) {

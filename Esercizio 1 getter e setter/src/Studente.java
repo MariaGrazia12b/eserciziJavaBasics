@@ -1,7 +1,7 @@
 public class Studente {
-    private String nome;
-    private String cognome;
-    private double identificativo;
+    public String nome;
+    public String cognome;
+    public double identificativo;
 
 
     //creiamo un metodo con lo stesso nome della classe.
@@ -26,3 +26,4 @@ public class Studente {
     }
 
 }
+  //  Ora come potresti settare le varie proprietà dello studente? mettendo public anzichè private.

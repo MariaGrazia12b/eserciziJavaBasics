@@ -14,8 +14,23 @@ class Triangolo extends Forma {
         System.out.println("del triangolo: " + area);
     }
 
+    public double getBase() {
+        return base;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    public double getAltezza() {
+        return altezza;
+    }
+
+    public void setAltezza(double altezza) {
+        this.altezza = altezza;
+    }
+
     public TipoForma getTipoForma() {
         return tipoForma;
     }
-
 }

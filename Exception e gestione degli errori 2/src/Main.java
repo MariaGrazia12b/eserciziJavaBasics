@@ -8,7 +8,7 @@ public class Main {
 
     public static void controlloCarattere (char character) {
         try {
-            // Character.isDigit() per verificare se il carattere è un numero. 
+            // Character.isDigit() per verificare se il carattere è un numero.
             if (!Character.isDigit(character)) {
                 throw new ArithmeticException ();
             } else {

@@ -8,7 +8,7 @@ public class Main {
 
         int min = 1;
         int max = 50;
-        
+
         System.out.println(number + " è nel range? " + verificaRange(number, min, max));
         System.out.println(number1 + " è nel range? " + verificaRange(number1, min, max));
     }

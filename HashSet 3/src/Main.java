@@ -37,7 +37,7 @@ public class Main {
         return myHashSet2;
     }
     public static void svuotaHashSet (HashSet <String> myHashSet3) {
-        if (myHashSet3.size() == 0) {
+        if (myHashSet3.isEmpty()) {
             System.out.println("HashSet vuoto");
         }
     }

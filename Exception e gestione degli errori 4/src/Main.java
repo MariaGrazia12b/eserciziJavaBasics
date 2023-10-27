@@ -5,25 +5,21 @@
 
 public class Main {
     public static void main(String[] args) {
-        int[] myArray = {3, 7, 1, 9, 5};
-        int index = 3;
+        int [] myArray = {3, 7, 1, 9, 5};
+        int index = 4;
         try {
-            System.out.println(calcoloDivisioneVerificaIndice(myArray, index));
+            System.out.println("Il risultato della divisione è: " + calcoloDivisioneVerificaIndice(myArray, index));
         } catch (ArrayIndexOutOfBoundsException | ArithmeticException e) {
-            System.err.println("ERRORE: " + e);
+            System.out.println("ERRORE: " + e);
         }
     }
 
     public static int calcoloDivisioneVerificaIndice(int[] array1, int indice) {
+       
+        int risultato = array1[indice] / 0;
         if (indice > array1.length) {
             throw new ArrayIndexOutOfBoundsException("Errore di accesso a un indice non presente nell'array");
         }
-
-        try {
-            int risultato = array1[indice] / 0;
             return risultato;
-        } catch (ArithmeticException e) {
-            throw new ArithmeticException("Errore di divisione per zero");
-        }
     }
 }

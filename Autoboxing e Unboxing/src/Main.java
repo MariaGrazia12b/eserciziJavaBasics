@@ -15,8 +15,10 @@ public class Main {
         System.out.println(numero6);
         char carattere = 'P';
         Character carattere2 = carattere; // autoboxing
+        char carattere3 = carattere2; // unboxing
         stampaCarattere(carattere);
         System.out.println(carattere2);
+        System.out.println(carattere3);
         Integer numero3 = 9;
         Integer numero4 = 2;
         int numero9 = numero3; // unboxing

@@ -15,13 +15,13 @@ public class Main {
         listaCoordinate.put("Coordinate3 ", punto3);
         listaCoordinate.put("Coordinate4 ", punto4);
 
-        System.out.println("Lista coordinate: " + listaCoordinate);
+        System.out.println("Lista coordinate: " + listaCoordinate); //toString
 
 
         boolean sonoUguali = punto1.equals(punto4);
-        System.out.println("Le coordinate del punto 1 e quelle del punto 4 sono uguali? " + sonoUguali);
+        System.out.println("Le coordinate del punto 1 e quelle del punto 4 sono uguali? " + sonoUguali); //equals()
 
-        System.out.println("La longitudine (y) del punto 2 è: " + punto2.y());
+        System.out.println("La longitudine (y) del punto 2 è: " + punto2.y()); //getter
 
     }
 }

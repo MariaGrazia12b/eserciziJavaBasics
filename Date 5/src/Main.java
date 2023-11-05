@@ -34,7 +34,7 @@ public class Main {
         }
 
         //verificare che le due date sono uguali ad ora
-        if (data1.isEqual(OffsetDateTime.parse("2023-05-11T20:13:00Z")) && data2.isEqual(OffsetDateTime.parse("2023-05-11T20:13:00Z"))) {
+        if (data1.isEqual(OffsetDateTime.now()) && data2.isEqual(OffsetDateTime.now())) {
             System.out.println("Le due date sono uguali alla data attuale");
         } else {
             System.out.println("Le due date non sono uguali alla data attuale");

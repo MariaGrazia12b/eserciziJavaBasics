@@ -12,13 +12,18 @@ public class Main {
     public static void main(String[] args) {
         ZonedDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z").toZonedDateTime();
         System.out.println(data);
-        //usando la formula .LONG
-        String dataString = data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+        dataLong(data);
+        dataManuale(data);
+    }
+    //usando la formula .LONG
+    public static void dataLong (ZonedDateTime data1) {
+        String dataString = data1.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
         System.out.println("Data formattata: " +dataString);
-
-        //oppure manualmente con .ofPattern, che in questo caso è più indicata perchè la consegna
-        // vuole il giorno 03 e non solo 3.
-        String dataStringManuale = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+    }
+    //oppure manualmente con .ofPattern, che in questo caso è più indicata perchè la consegna
+    // vuole il giorno 03 e non solo 3.
+    public static void dataManuale (ZonedDateTime data2) {
+        String dataStringManuale = data2.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data formattata manualmente: " +dataStringManuale);
     }
 }

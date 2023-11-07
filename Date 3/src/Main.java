@@ -18,24 +18,29 @@ public class Main {
         stampaGiorno(data);
         stampaGiornoSettimana(data);
     }
-        public static void stampaDataCompleta(OffsetDateTime data) {
+        public static String stampaDataCompleta(OffsetDateTime data) {
             String dataStringa = data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
             System.out.println("Data: " + dataStringa);
+            return dataStringa;
         }
-        public static void stampaAnno(OffsetDateTime data) {
+        public static int stampaAnno(OffsetDateTime data) {
             int annoData = data.getYear();
             System.out.println("L'ANNO della data è: " + annoData);
+            return annoData;
         }
-        public static void stampaMese(OffsetDateTime data) {
+        public static String stampaMese(OffsetDateTime data) {
             String meseData = String.valueOf(data.getMonth());
             System.out.println("Il MESE della data è: " + meseData);
+            return meseData;
         }
-        public static void stampaGiorno(OffsetDateTime data) {
+        public static int stampaGiorno(OffsetDateTime data) {
             int giornoData = data.getDayOfMonth();
             System.out.println("Il GIORNO della data è: " + giornoData);
+            return giornoData;
         }
-        public static void stampaGiornoSettimana(OffsetDateTime data) {
+        public static String stampaGiornoSettimana(OffsetDateTime data) {
             String giornoSettimanaData = String.valueOf(data.getDayOfWeek());
             System.out.println("Il GIORNO DELLA SETTIMANA della data è: " + giornoSettimanaData);
+            return giornoSettimanaData;
         }
 }

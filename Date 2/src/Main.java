@@ -16,14 +16,16 @@ public class Main {
         dataManuale(data);
     }
     //usando la formula .LONG
-    public static void dataLong (ZonedDateTime data1) {
+    public static String dataLong (ZonedDateTime data1) {
         String dataString = data1.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
         System.out.println("Data formattata: " +dataString);
+        return dataString;
     }
     //oppure manualmente con .ofPattern, che in questo caso è più indicata perchè la consegna
     // vuole il giorno 03 e non solo 3.
-    public static void dataManuale (ZonedDateTime data2) {
+    public static String dataManuale (ZonedDateTime data2) {
         String dataStringManuale = data2.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data formattata manualmente: " +dataStringManuale);
+        return dataStringManuale;
     }
 }

@@ -16,17 +16,20 @@ public class Main {
         ZonedDateTime data1 = OffsetDateTime.parse("2002-03-01T13:00:00Z").toZonedDateTime();
         dataFull(data1);
     }
-    public static void dataMedium(OffsetDateTime data1) {
+    public static String dataMedium(OffsetDateTime data1) {
         String dataString1 = data1.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
         System.out.println("Forma media: " +dataString1);
+        return dataString1;
     }
-    public static void dataShort(OffsetDateTime data2) {
+    public static String dataShort(OffsetDateTime data2) {
         String dataString2 = data2.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));
         System.out.println("Forma breve: " +dataString2);
+        return dataString2;
     }
     //per formattare solo la data bastava il Full senza creare un nuovo oggetto con la formula toZoneDateTime().
-    public static void dataFull(ZonedDateTime data3) {
+    public static String dataFull(ZonedDateTime data3) {
         String dataString3 = data3.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
         System.out.println("Forma lunga: " +dataString3);
+        return dataString3;
     }
 }

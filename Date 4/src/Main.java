@@ -13,14 +13,30 @@ public class Main {
         OffsetDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z");
         String dataStringa = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data iniziale: " + dataStringa);
-        // Aggiungi un anno
-        OffsetDateTime dataUnAnnoDopo = data.plusYears(1);
-        // Sottrai un mese
-        OffsetDateTime dataUnMesePrima = dataUnAnnoDopo.minusMonths(1);
-        // Aggiungi 7 giorni
-        OffsetDateTime dataSetteGiorniDopo = dataUnMesePrima.plusDays(7);
+        data = aggiungiAnno(data);
+        data = sottraiMese(data);
+        data = aggiungi7Giorni(data);
         // Stampa il risultato localizzato per l'Italia
-        String dataItalia = dataSetteGiorniDopo.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+        String dataItalia = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data modificata: " +dataItalia);
     }
+    public static OffsetDateTime aggiungiAnno (OffsetDateTime data1) {
+        data1 = data1.plusYears(1);
+        return data1;
+    }
+    public static OffsetDateTime sottraiMese (OffsetDateTime data2) {
+        data2 = data2.minusMonths(1);
+        return data2;
+    }
+    public static OffsetDateTime aggiungi7Giorni (OffsetDateTime data3) {
+        data3 = data3.plusDays(7);
+        return data3;
+    }
+
+
+   /*
+
+    // Stampa il risultato localizzato per l'Italia
+    String dataItalia = dataSetteGiorniDopo.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+        System.out.println("Data modificata: " +dataItalia);*/
 }

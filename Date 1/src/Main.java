@@ -11,16 +11,22 @@ public class Main {
     public static void main(String[] args) {
         OffsetDateTime data = OffsetDateTime.parse("2002-03-01T13:00:00Z");
         System.out.println(data);
-
-        String dataString1 = data.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-        System.out.println("Forma media: " +dataString1);
-
-        String dataString2 = data.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));
-        System.out.println("Forma breve: " +dataString2);
-
-        //per formattare solo la data bastava il Full senza creare un nuovo oggetto con la formula toZoneDateTime().
+        dataMedium(data);
+        dataShort(data);
         ZonedDateTime data1 = OffsetDateTime.parse("2002-03-01T13:00:00Z").toZonedDateTime();
-        String dataString3 = data1.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
+        dataFull(data1);
+    }
+    public static void dataMedium(OffsetDateTime data1) {
+        String dataString1 = data1.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+        System.out.println("Forma media: " +dataString1);
+    }
+    public static void dataShort(OffsetDateTime data2) {
+        String dataString2 = data2.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));
+        System.out.println("Forma breve: " +dataString2);
+    }
+    //per formattare solo la data bastava il Full senza creare un nuovo oggetto con la formula toZoneDateTime().
+    public static void dataFull(ZonedDateTime data3) {
+        String dataString3 = data3.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
         System.out.println("Forma lunga: " +dataString3);
     }
 }

@@ -18,7 +18,7 @@ public class MainTest {
     }
     @Test
     public void empty_string() {
-        String result = test.dataFull(" ");
+        String result = test.dataFull("");
         assertEquals(null, result);
     }
     @Test
@@ -33,7 +33,7 @@ public class MainTest {
     }
     @Test
     public void empty_medium() {
-        String result = test.dataMedium(" ");
+        String result = test.dataMedium("");
         assertEquals(null, result);
     }
     @Test
@@ -49,7 +49,7 @@ public class MainTest {
     }
     @Test
     public void empty_short() {
-        String result = test.dataShort(" ");
+        String result = test.dataShort("");
         assertEquals(null, result);
     }
 }

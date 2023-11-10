@@ -7,6 +7,7 @@
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 public class Main {
@@ -14,45 +15,51 @@ public class Main {
         OffsetDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z");
         String dataStringa = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data iniziale: " + dataStringa);
-        data = aggiungiAnno(data);
-        data = sottraiMese(data);
-        data = aggiungi7Giorni(data);
+        data = aggiungiAnno("2023-03-01T13:00:00Z");
+        data = sottraiMese(data.toString());
+        data = aggiungi7Giorni(data.toString());
         // Stampa il risultato localizzato per l'Italia
         String dataItalia = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
         System.out.println("Data modificata: " + dataItalia);
     }
 
-    public static OffsetDateTime aggiungiAnno(OffsetDateTime data1) {
+    public static OffsetDateTime aggiungiAnno(String data1) {
         if (data1 != null) {
             try {
-                data1 = data1.plusYears(1);
-                return data1;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+                OffsetDateTime data = OffsetDateTime.parse(data1);
+                String dataStringa = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                OffsetDateTime dataYear = data.plusYears(1);
+                return dataYear;
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data1, e.getErrorIndex());
             }
         }
         return null;
     }
 
-    public static OffsetDateTime sottraiMese(OffsetDateTime data2) {
+    public static OffsetDateTime sottraiMese(String data2) {
         if (data2 != null) {
             try {
-                data2 = data2.minusMonths(1);
-                return data2;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+                OffsetDateTime data = OffsetDateTime.parse(data2);
+                String dataStringa = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                data = data.minusMonths(1);
+                return data;
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data2, e.getErrorIndex());
             }
         }
         return null;
     }
 
-    public static OffsetDateTime aggiungi7Giorni(OffsetDateTime data3) {
+    public static OffsetDateTime aggiungi7Giorni(String data3) {
         if (data3 != null) {
             try {
-                data3 = data3.plusDays(7);
-                return data3;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+                OffsetDateTime data = OffsetDateTime.parse(data3);
+                String dataStringa = data.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                data = data.plusDays(7);
+                return data;
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data3, e.getErrorIndex());
             }
         }
         return null;

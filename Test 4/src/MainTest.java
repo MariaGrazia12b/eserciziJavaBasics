@@ -39,13 +39,12 @@ public class MainTest {
     }
     @Test
     public void mese_parsing () {
-        String nonValida = "anno_non_valido";
+        String nonValida = "mese_non_valido";
         Exception e = assertThrows(DateTimeParseException.class, () -> test.stampaMese(nonValida));
         Assert.assertEquals("Errore di parsing", e.getMessage());
     }
     @Test
     public void verifica_stampa_giorno () {
-       // OffsetDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z");
         int result = test.stampaGiorno("2023-03-01T13:00:00Z");
         assertEquals (1, result);
     }
@@ -56,13 +55,12 @@ public class MainTest {
     }
     @Test
     public void giorno_parsing () {
-        String nonValida = "anno_non_valido";
+        String nonValida = "giorno_non_valido";
         Exception e = assertThrows(DateTimeParseException.class, () -> test.stampaGiorno(nonValida));
         Assert.assertEquals("Errore di parsing", e.getMessage());
     }
     @Test
     public void verifica_stampa_giorno_settimana () {
-        //OffsetDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z");
         String result = test.stampaGiornoSettimana("2023-03-01T13:00:00Z");
         assertEquals ("WEDNESDAY", result);
     }
@@ -73,7 +71,7 @@ public class MainTest {
     }
     @Test
     public void giorno_settimana_parsing () {
-        String nonValida = "anno_non_valido";
+        String nonValida = "giorno_non_valido";
         Exception e = assertThrows(DateTimeParseException.class, () -> test.stampaGiornoSettimana(nonValida));
         Assert.assertEquals("Errore di parsing", e.getMessage());
     }

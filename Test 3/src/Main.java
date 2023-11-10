@@ -15,7 +15,7 @@ public class Main {
         dataManuale("2023-03-01T13:00:00Z");
 
     }
-    public static String dataManuale (String data) throws DateTimeParseException, DataFormatException {
+    public static String dataManuale (String data) throws DataFormatException {
         if (data != null && ! data.isEmpty()) {
             try {
                 OffsetDateTime data1 = OffsetDateTime.parse(data);

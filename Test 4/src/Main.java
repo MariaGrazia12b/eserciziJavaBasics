@@ -7,67 +7,70 @@
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        OffsetDateTime data = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        stampaDataCompleta(data);
-        stampaAnno(data);
-        stampaMese(data);
-        stampaGiorno(data);
-        stampaGiornoSettimana(data);
+        stampaAnno("2023-03-01T13:00:00Z");
+        stampaMese("2023-03-01T13:00:00Z");
+        stampaGiorno("2023-03-01T13:00:00Z");
+        stampaGiornoSettimana("2023-03-01T13:00:00Z");
 
     }
-    public static String stampaDataCompleta(OffsetDateTime data) {
-        String dataStringa = data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
-        System.out.println("Data: " + dataStringa);
-        return dataStringa;
-    }
-    public static int stampaAnno(OffsetDateTime data) {
+    public static int stampaAnno(String data)  {
             if (data != null) {
                 try {
-                    int annoData = data.getYear();
+                    OffsetDateTime data1 = OffsetDateTime.parse(data);
+                    String dataStringa = data1.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                    int annoData = data1.getYear();
                     System.out.println("L'ANNO della data è: " + annoData);
                     return annoData;
-                } catch (Exception e) {
-                    System.out.println("Errore " + e);
+                } catch (DateTimeParseException e) {
+                    throw new DateTimeParseException("Errore di parsing", data, e.getErrorIndex());
                 }
             }
         return 0;
     }
-    public static String stampaMese(OffsetDateTime data) {
+    public static String stampaMese(String data) {
         if (data != null) {
             try {
-                String meseData = String.valueOf(data.getMonth());
+                OffsetDateTime data1 = OffsetDateTime.parse(data);
+                String dataStringa = data1.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                String meseData = String.valueOf(data1.getMonth());
                 System.out.println("Il MESE della data è: " + meseData);
                 return meseData;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data, e.getErrorIndex());
             }
         }
         return null;
     }
-    public static int stampaGiorno(OffsetDateTime data) {
+    public static int stampaGiorno(String data) {
         if (data != null) {
             try {
-                int giornoData = data.getDayOfMonth();
+                OffsetDateTime data1 = OffsetDateTime.parse(data);
+                String dataStringa = data1.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                int giornoData = data1.getDayOfMonth();
                 System.out.println("Il GIORNO della data è: " + giornoData);
                 return giornoData;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data, e.getErrorIndex());
             }
         }
         return 0;
     }
-    public static String stampaGiornoSettimana(OffsetDateTime data) {
+    public static String stampaGiornoSettimana(String data) {
         if (data != null) {
             try {
-                String giornoSettimanaData = String.valueOf(data.getDayOfWeek());
+                OffsetDateTime data1 = OffsetDateTime.parse(data);
+                String dataStringa = data1.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ITALY));
+                String giornoSettimanaData = String.valueOf(data1.getDayOfWeek());
                 System.out.println("Il GIORNO DELLA SETTIMANA della data è: " + giornoSettimanaData);
                 return giornoSettimanaData;
-            } catch (Exception e) {
-                System.out.println("Errore " + e);
+            } catch (DateTimeParseException e) {
+                throw new DateTimeParseException("Errore di parsing", data, e.getErrorIndex());
             }
         }
         return null;

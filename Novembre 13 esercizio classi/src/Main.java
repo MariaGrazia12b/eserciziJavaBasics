@@ -8,6 +8,7 @@
 // considerare il bonus per i manager
 //- metodo visualizzaDettagli che restituisca informazioni dettagliate sugli impiegati.
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,10 @@ public class Main {
         List<Manager> listaManager = new ArrayList<>();
         List<Sviluppatore> listaSviluppatori = new ArrayList<>();
         Azienda azienda = new Azienda(listaManager, listaSviluppatori);
-        Manager manager1 = new Manager("Paolo", "Giallo", 500, 2000);
-        Manager manager2 = new Manager("Roberto", "Nero", 500, 2500);
-        Sviluppatore sviluppatore1 = new Sviluppatore("Carlo", "Verde", "Java", 1500);
-        Sviluppatore sviluppatore2 = new Sviluppatore("Sandro", "Rosso", "Java", 1500);
+        Manager manager1 = new Manager("Paolo", "Giallo", 500, BigDecimal.valueOf(1500));
+        Manager manager2 = new Manager("Roberto", "Nero", 500, BigDecimal.valueOf(1500));
+        Sviluppatore sviluppatore1 = new Sviluppatore("Carlo", "Verde", "Java", BigDecimal.valueOf(1500), 500);
+        Sviluppatore sviluppatore2 = new Sviluppatore("Sandro", "Rosso", "Java", BigDecimal.valueOf(1500), 500);
 
         azienda.aggiungiManager(manager1);
         azienda.aggiungiManager(manager2);

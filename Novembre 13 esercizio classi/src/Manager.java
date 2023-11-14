@@ -1,20 +1,15 @@
-public class Manager {
-    private String nome;
-    private String cognome;
-    private double bonus;
-    private double stipendio;
+import java.math.BigDecimal;
 
-    public Manager(String nome, String cognome, double bonus, double stipendio) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.bonus = bonus;
-        this.stipendio = stipendio;
+public class Manager extends Lavoratore {
+
+    public Manager(String nome, String cognome, double bonus, BigDecimal stipendio) {
+        super(nome, cognome, bonus, stipendio);
     }
-    public double calcolaStipendio () {
-        return this.stipendio + this.bonus;
+    public BigDecimal calcolaStipendio () {
+        return this.getStipendio().multiply(BigDecimal.valueOf(this.getBonus()));
     }
     public String infoImpiegati () {
-        return "Nome: " + this.nome + " Cognome: " + this.cognome + " Bonus: " + this.bonus + " Stipendio: "
-                + this.stipendio;
+        return "Nome: " + this.getNome() + " Cognome: " + this.getCognome() + " Bonus: " + this.getBonus() +
+                " Stipendio: " + this.getStipendio();
     }
 }

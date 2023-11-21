@@ -11,19 +11,6 @@ public class Main {
         String user      = "developer";
         String password  = "passwordhere";
 
-       /* try(Connection conn = DriverManager.getConnection(url, user, password)) {
-            Statement statement = conn.createStatement();
-            ResultSet risultato = statement.executeQuery("SELECT * FROM newdb.students;");
-            while (risultato.next()) {
-                System.out.println(
-                        risultato.getString("student_id") + " " +
-                                risultato.getString("last_name") + " " +
-                                risultato.getString("first_name")
-                );
-            }
-        } catch(SQLException e) {
-            System.out.println(e.getMessage());
-        }*/
         try(Connection conn = DriverManager.getConnection(url, user, password)) {
             Statement statement = conn.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS students (" +
@@ -43,7 +30,8 @@ public class Main {
                     "VALUES ('Rossi', 'Mario')," +
                     "('Bianchi', 'Andrea')," +
                     "('Verdi', 'Giulia')," +
-                    "('Neri', 'Paola'); "
+                    "('Neri', 'Paola'), " +
+                    "('Rossi', 'Micol'); "
 
             );
         } catch (SQLException e) {
@@ -66,5 +54,19 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //ESERCIZIO ALTER
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Statement statement = conn.createStatement();
+            statement.execute("ALTER TABLE students " +
+                    "ADD COLUMN country VARCHAR(30)");
+            statement.executeUpdate("UPDATE students  SET country = 'Italy' " +
+                    "WHERE student_id = 1 OR student_id = 2");
+            statement.executeUpdate("UPDATE students  SET country = 'Germany' " +
+                    "WHERE student_id = 3 OR student_id = 4");
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
     }
+
 }

@@ -24,6 +24,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        /*
         try(Connection conn = DriverManager.getConnection(url, user, password)) {
             Statement statement = conn.createStatement();
             statement.executeUpdate("INSERT INTO students (last_name, first_name) " +
@@ -37,6 +38,7 @@ public class Main {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        */
 
         //ESERCIZIO SELECT:
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -56,7 +58,7 @@ public class Main {
         }
 
         //ESERCIZIO ALTER
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+       /* try (Connection conn = DriverManager.getConnection(url, user, password)) {
             Statement statement = conn.createStatement();
             statement.execute("ALTER TABLE students " +
                     "ADD COLUMN country VARCHAR(30)");
@@ -65,7 +67,50 @@ public class Main {
             statement.executeUpdate("UPDATE students  SET country = 'Germany' " +
                     "WHERE student_id = 3 OR student_id = 4");
         } catch (Exception e) {
-        e.printStackTrace();
+              e.printStackTrace();
+        } */
+
+        //ESERCIZIO VIEWS
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Statement statement = conn.createStatement();
+            String queryItalianView = "CREATE VIEW italian_students AS SELECT last_name, first_name FROM students " +
+                    "WHERE country = 'italy';";
+            int ris = statement.executeUpdate(queryItalianView);
+
+
+
+            String queryGermanView = "CREATE VIEW german_students AS SELECT last_name, first_name FROM students " +
+                    "WHERE country = 'germany';";
+            int ris2 = statement.executeUpdate(queryGermanView); 
+
+            String queryitalianStudents = "SELECT * FROM italian_students;";
+            ResultSet result = statement.executeQuery(queryitalianStudents);
+            ArrayList<Student> italianStudents = new ArrayList<>();
+            System.out.println("Gli studenti italiani sono:");
+            while (result.next()) {
+                String name = result.getString(2);
+                String surname = result.getString(1);
+                Student student = new Student(name, surname);
+                italianStudents.add(student);
+                System.out.println(student);
+            }
+
+            System.out.println();
+
+            String queryGermanStudents = "SELECT * FROM german_students;";
+            ResultSet result1 = statement.executeQuery(queryGermanStudents);
+            ArrayList<Student> germanStudents = new ArrayList<>();
+            System.out.println("Gli studenti tedeschi sono:");
+            while (result1.next()) {
+                String name = result1.getString(2);
+                String surname = result1.getString(1);
+                Student student = new Student(name, surname);
+                germanStudents.add(student);
+                System.out.println(student);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 
 public class gestioneOperazioni {
+
     public static BigDecimal eseguiOperazione(Operazione operazione, BigDecimal numero1, BigDecimal numero2) throws Exception {
         switch (operazione) {
             case ADDIZIONE:
@@ -16,7 +17,7 @@ public class gestioneOperazioni {
             case MAX:
                 return massimo(numero1, numero2);
             default:
-                throw new IllegalArgumentException("Operazione non supportata: " + operazione.getSimbolo());
+                throw new IllegalArgumentException("Operazione non supportata: ");
         }
     }
 

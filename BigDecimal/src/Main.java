@@ -15,7 +15,7 @@ public class Main {
         for (Operazione operazione : Operazione.values()) {
             try {
                 BigDecimal risultato = gestioneOperazioni.eseguiOperazione(operazione, numero1, numero2);
-                System.out.println(numero1 + " " + operazione.getSimbolo() + " " + numero2 + " = " + risultato);
+                System.out.println("Risultato: " + risultato);
             } catch (ArithmeticException e) {
                 System.out.println("Errore: " + e.getMessage());
             }

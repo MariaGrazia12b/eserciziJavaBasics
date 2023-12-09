@@ -1,94 +1,84 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+//il numero di telefono, il credito disponibile, la lista delle telefonate effettuate e
+//la durata di ogni telefonata.
 public class Sim {
-    private int numeroTelefono;
-    private BigDecimal creditoDisponibile;
-    private String intestatario;
-    private PianoTariffario pianoTariffario;
-    private ArrayList<Telefonata> listaTelefonate;
+    private int numero;
+    private BigDecimal credito;
+    private ArrayList<Telefonata> chiamateEffettuate;
+    private double durataChiamata;
 
-    public Sim(int numeroTelefono, BigDecimal creditoDisponibile, String intestatario,
-               PianoTariffario pianoTariffario, ArrayList<Telefonata> listaTelefonate) {
-        this.numeroTelefono = numeroTelefono;
-        this.creditoDisponibile = creditoDisponibile;
-        this.intestatario = intestatario;
-        this.pianoTariffario = pianoTariffario;
-        this.listaTelefonate = listaTelefonate;
+    public Sim(int numero, BigDecimal credito, ArrayList<Telefonata> chiamateEffettuate, double durataChiamata) {
+        this.numero = numero;
+        this.credito = credito;
+        this.chiamateEffettuate = chiamateEffettuate;
+        this.durataChiamata = durataChiamata;
     }
 
-    public int getNumeroTelefono() {
-        return numeroTelefono;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNumeroTelefono(int numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public BigDecimal getCreditoDisponibile() {
-        return creditoDisponibile;
+    public BigDecimal getCredito() {
+        return credito;
     }
 
-    public void setCreditoDisponibile(BigDecimal creditoDisponibile) {
-        this.creditoDisponibile = creditoDisponibile;
+    public void setCredito(BigDecimal credito) {
+        this.credito = credito;
     }
 
-    public String getIntestatario() {
-        return intestatario;
+    public ArrayList<Telefonata> getChiamateEffettuate() {
+        return chiamateEffettuate;
     }
 
-    public void setIntestatario(String intestatario) {
-        this.intestatario = intestatario;
+    public void setChiamateEffettuate(ArrayList<Telefonata> chiamateEffettuate) {
+        this.chiamateEffettuate = chiamateEffettuate;
     }
 
-    public PianoTariffario getPianoTariffario() {
-        return pianoTariffario;
+    public double getDurataChiamata() {
+        return durataChiamata;
     }
 
-    public void setPianoTariffario(PianoTariffario pianoTariffario) {
-        this.pianoTariffario = pianoTariffario;
-    }
-
-    public ArrayList<Telefonata> getListaTelefonate() {
-        return listaTelefonate;
-    }
-
-    public void setListaTelefonate(ArrayList<Telefonata> listaTelefonate) {
-        this.listaTelefonate = listaTelefonate;
-    }
-
-    //un metodo per inserire una telefonata con i relativi dati;
-    public void aggiungiTelefonata (Telefonata telefonata) {
-        this.listaTelefonate.add(telefonata);
-    }
-
-    //un metodo per il calcolo dei minuti totali di conversazione;
-    public double contaMinuti () {
-        double durataTotale = 0;
-        for(Telefonata telefonata : listaTelefonate) {
-            durataTotale = durataTotale + telefonata.getDurata();
-        }
-        return durataTotale;
-    }
-    //metodo per il calcolo delle telefonate effettuate verso un determinato numero;
-    public int contaTelefonate(int destinatario) {
-        int telefonata = 0;
-        for (Telefonata t : listaTelefonate) {
-            if(t.getNumeroDestinatario() == destinatario) {
-                telefonata++;
-            }
-        }
-        return telefonata;
+    public void setDurataChiamata(double durataChiamata) {
+        this.durataChiamata = durataChiamata;
     }
 
     @Override
     public String toString() {
         return "Sim{" +
-                "numeroTelefono=" + numeroTelefono +
-                ", creditoDisponibile=" + creditoDisponibile +
-                ", intestatario='" + intestatario + '\'' +
-                ", pianoTariffario=" + pianoTariffario +
-                ", listaTelefonate=" + listaTelefonate +
+                "numero=" + numero +
+                ", credito=" + credito +
+                ", chiamateEffettuate=" + chiamateEffettuate +
+                ", durataChiamata=" + durataChiamata +
                 '}';
+    }
+    /*un metodo per inserire una telefonata con i relativi dati; OK
+    un metodo per il calcolo dei minuti totali di conversazione;
+    metodo per il calcolo delle telefonate effettuate verso un determinato numero;
+    metodo per la stampa dei dati della SIM e l’elenco delle telefonate.*/
+
+    public void aggiungiTelefonata (Telefonata t) {
+        this.chiamateEffettuate.add(t);
+    }
+    public double minutiTotConversazione () {
+        double minTot = 0;
+        for (Telefonata t : this.chiamateEffettuate) {
+            minTot = minTot + t.getDurata();
+        }
+        return minTot;
+    }
+    public int chiamateVersoUnNumero (int numero) {
+        int chiamate = 0;
+        for (Telefonata t : this.chiamateEffettuate) {
+            if (t.getNumeroDestinatario() == numero) {
+                chiamate ++;
+            }
+        }
+        return chiamate;
     }
 }

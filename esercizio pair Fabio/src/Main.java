@@ -14,20 +14,23 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Sim sim1 = new Sim(345678909, BigDecimal.valueOf(15), new ArrayList<Telefonata>(), 20);
+        Sim sim2 = new Sim(327891209, BigDecimal.valueOf(10), new ArrayList<Telefonata>(), 60);
+        Sim sim3 = new Sim(123678123, BigDecimal.valueOf(3), new ArrayList<Telefonata>(), 45);
 
-        Sim sim1 = new Sim(123456789, BigDecimal.valueOf(3.5), "Mario Rossi",
-                PianoTariffario.A, new ArrayList<>());
+        Telefonata t1 = new Telefonata(345678909, 123678123, 5);
+        Telefonata t2 = new Telefonata(345678909, 123678123, 2);
+        Telefonata t3 = new Telefonata(327891209, 123678123, 10);
+        Telefonata t4 = new Telefonata(123678123, 327891209, 8);
 
-        Telefonata telefonata1 = new Telefonata(123456789, 987654321, 45);
-        Telefonata telefonata2 = new Telefonata(123456789, 987654321, 15);
-        Telefonata telefonata3 = new Telefonata(123456789, 987622221, 10);
-
-        sim1.aggiungiTelefonata(telefonata1);
-        sim1.aggiungiTelefonata(telefonata2);
-        sim1.aggiungiTelefonata(telefonata3);
-        System.out.println(sim1);
-        System.out.println("La durata dei minuti totali di chiamata è: " + sim1.contaMinuti());
-        System.out.println("Le chiamate fatte al numero 987654321 sono: " + sim1.contaTelefonate(987654321));
+        sim1.aggiungiTelefonata(t1);
+        sim1.aggiungiTelefonata(t2);
+        System.out.println(sim1.getChiamateEffettuate());
+        System.out.println();
+        System.out.println(sim1.minutiTotConversazione());
+        System.out.println();
+        System.out.println(sim1.chiamateVersoUnNumero(123678123));
+        System.out.println(sim1.chiamateVersoUnNumero(327891209));
 
     }
 }

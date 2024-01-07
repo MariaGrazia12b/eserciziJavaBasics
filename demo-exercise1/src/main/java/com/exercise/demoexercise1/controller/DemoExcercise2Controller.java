@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1")
-
-public class DemoExercise1Controller {
-    @GetMapping(path = "/ciao1")
-    public String tempoLombardia (@RequestParam String nome, @RequestParam String provincia) {
-        return "Ciao " + nome + ", com'è il tempo in " + provincia + "?";
+@RequestMapping("/v2")
+public class DemoExcercise2Controller
+{
+    @GetMapping(path = "/ciao/Lombardia")
+    public User ciao (@RequestParam String nome) {
+        return new User(nome);
     }
-
-
 }

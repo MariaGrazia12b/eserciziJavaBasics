@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v2")
 public class DemoExcercise2Controller
 {
-    @GetMapping(path = "/ciao/Lombardia")
-    public User ciao (@RequestParam String nome) {
-        return new User(nome);
+    @GetMapping(path = "/ciao")
+    public User ciao (@RequestParam String nome, @RequestParam String provincia) {
+        return new User(nome, provincia);
     }
 }

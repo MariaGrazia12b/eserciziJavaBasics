@@ -5,9 +5,9 @@ public class User {
     public String provincia;
     public String saluto;
 
-    public User(String nome) {
+    public User(String nome, String provincia) {
         this.nome = nome;
-        this.provincia = "Lombardia";
+        this.provincia = provincia;
         this.saluto = "Ciao " + nome + ",  com'e' il tempo in "+ provincia + "?";
     }
 }
